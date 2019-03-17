@@ -94,8 +94,6 @@ void PCDM<L, D>::solver(const std::vector<D>& x_initial, const L& blocksize, con
 
     AbsAlgorithm<L,D>::x.assign(x_initial.begin(), x_initial.end());
     AbsAlgorithm<L,D>::primal_initial_set();
-    //Print("w", AbsAlgorithm<L,D>::w);
-    //Print("initial_grad_norm",AbsAlgorithm<L,D>::grad_norm);
     AbsAlgorithm<L,D>::iter = 0;
     AbsAlgorithm<L,D>::time = 0;
     if(AbsAlgorithm<L, D>::result_iflog == true)
