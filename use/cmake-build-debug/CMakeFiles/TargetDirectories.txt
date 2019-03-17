@@ -1,0 +1,3 @@
+/Users/lumeng/Desktop/CCode/use/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/lumeng/Desktop/CCode/use/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/lumeng/Desktop/CCode/use/cmake-build-debug/CMakeFiles/use.dir

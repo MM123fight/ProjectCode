@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="QuadProg++"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\src\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/lumeng/desktop/CCode/QuadProg"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/lumeng/desktop/CCode/QuadProg/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/lumeng/desktop/CCode/QuadProg/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/lumeng/desktop/CCode/QuadProg/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/lumeng/desktop/CCode/QuadProg/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install/local">
+				<Option working_dir="/Users/lumeng/desktop/CCode/QuadProg"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/lumeng/desktop/CCode/QuadProg/Makefile&quot;  VERBOSE=1 install/local"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/lumeng/desktop/CCode/QuadProg/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/lumeng/desktop/CCode/QuadProg/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/lumeng/desktop/CCode/QuadProg/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install/strip">
+				<Option working_dir="/Users/lumeng/desktop/CCode/QuadProg"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/lumeng/desktop/CCode/QuadProg/Makefile&quot;  VERBOSE=1 install/strip"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/lumeng/desktop/CCode/QuadProg/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/lumeng/desktop/CCode/QuadProg/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/lumeng/desktop/CCode/QuadProg/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install">
+				<Option working_dir="/Users/lumeng/desktop/CCode/QuadProg"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/lumeng/desktop/CCode/QuadProg/Makefile&quot;  VERBOSE=1 install"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/lumeng/desktop/CCode/QuadProg/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/lumeng/desktop/CCode/QuadProg/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/lumeng/desktop/CCode/QuadProg/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="list_install_components">
+				<Option working_dir="/Users/lumeng/desktop/CCode/QuadProg"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/lumeng/desktop/CCode/QuadProg/Makefile&quot;  VERBOSE=1 list_install_components"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/lumeng/desktop/CCode/QuadProg/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/lumeng/desktop/CCode/QuadProg/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/lumeng/desktop/CCode/QuadProg/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/lumeng/desktop/CCode/QuadProg"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/lumeng/desktop/CCode/QuadProg/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/lumeng/desktop/CCode/QuadProg/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/lumeng/desktop/CCode/QuadProg/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/lumeng/desktop/CCode/QuadProg/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/lumeng/desktop/CCode/QuadProg"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/lumeng/desktop/CCode/QuadProg/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/lumeng/desktop/CCode/QuadProg/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/lumeng/desktop/CCode/QuadProg/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/lumeng/desktop/CCode/QuadProg/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="quadprog">
+				<Option output="/Users/lumeng/desktop/CCode/QuadProg/src/libquadprog.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/lumeng/desktop/CCode/QuadProg/src"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/lumeng/desktop/CCode/QuadProg/src/Makefile&quot;  VERBOSE=1 quadprog"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/lumeng/desktop/CCode/QuadProg/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/lumeng/desktop/CCode/QuadProg/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/lumeng/desktop/CCode/QuadProg/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="quadprog/fast">
+				<Option output="/Users/lumeng/desktop/CCode/QuadProg/src/libquadprog.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/lumeng/desktop/CCode/QuadProg/src"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/lumeng/desktop/CCode/QuadProg/src/Makefile&quot;  VERBOSE=1 quadprog/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/lumeng/desktop/CCode/QuadProg/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/lumeng/desktop/CCode/QuadProg/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/lumeng/desktop/CCode/QuadProg/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="main">
+				<Option output="/Users/lumeng/desktop/CCode/QuadProg/src/main" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/lumeng/desktop/CCode/QuadProg/src"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/lumeng/desktop/CCode/QuadProg/src/Makefile&quot;  VERBOSE=1 main"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/lumeng/desktop/CCode/QuadProg/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/lumeng/desktop/CCode/QuadProg/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/lumeng/desktop/CCode/QuadProg/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="main/fast">
+				<Option output="/Users/lumeng/desktop/CCode/QuadProg/src/main" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/lumeng/desktop/CCode/QuadProg/src"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/lumeng/desktop/CCode/QuadProg/src/Makefile&quot;  VERBOSE=1 main/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/lumeng/desktop/CCode/QuadProg/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/lumeng/desktop/CCode/QuadProg/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/lumeng/desktop/CCode/QuadProg/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/lumeng/desktop/CCode/QuadProg/src/Array.cc">
+			<Option target="quadprog"/>
+		</Unit>
+		<Unit filename="/Users/lumeng/desktop/CCode/QuadProg/src/Array.hh">
+			<Option target="quadprog"/>
+			<Option target="main"/>
+		</Unit>
+		<Unit filename="/Users/lumeng/desktop/CCode/QuadProg/src/QuadProg++.cc">
+			<Option target="quadprog"/>
+		</Unit>
+		<Unit filename="/Users/lumeng/desktop/CCode/QuadProg/src/QuadProg++.hh">
+			<Option target="quadprog"/>
+			<Option target="main"/>
+		</Unit>
+		<Unit filename="/Users/lumeng/desktop/CCode/QuadProg/src/main.cc">
+			<Option target="main"/>
+		</Unit>
+		<Unit filename="/Users/lumeng/desktop/CCode/QuadProg/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/Users/lumeng/desktop/CCode/QuadProg/src/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

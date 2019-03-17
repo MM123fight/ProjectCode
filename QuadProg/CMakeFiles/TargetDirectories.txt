@@ -1,0 +1,14 @@
+/Users/lumeng/desktop/CCode/QuadProg/CMakeFiles/install/local.dir
+/Users/lumeng/desktop/CCode/QuadProg/CMakeFiles/install/strip.dir
+/Users/lumeng/desktop/CCode/QuadProg/CMakeFiles/install.dir
+/Users/lumeng/desktop/CCode/QuadProg/CMakeFiles/list_install_components.dir
+/Users/lumeng/desktop/CCode/QuadProg/CMakeFiles/rebuild_cache.dir
+/Users/lumeng/desktop/CCode/QuadProg/CMakeFiles/edit_cache.dir
+/Users/lumeng/desktop/CCode/QuadProg/src/CMakeFiles/install/local.dir
+/Users/lumeng/desktop/CCode/QuadProg/src/CMakeFiles/install/strip.dir
+/Users/lumeng/desktop/CCode/QuadProg/src/CMakeFiles/install.dir
+/Users/lumeng/desktop/CCode/QuadProg/src/CMakeFiles/rebuild_cache.dir
+/Users/lumeng/desktop/CCode/QuadProg/src/CMakeFiles/quadprog.dir
+/Users/lumeng/desktop/CCode/QuadProg/src/CMakeFiles/edit_cache.dir
+/Users/lumeng/desktop/CCode/QuadProg/src/CMakeFiles/list_install_components.dir
+/Users/lumeng/desktop/CCode/QuadProg/src/CMakeFiles/main.dir

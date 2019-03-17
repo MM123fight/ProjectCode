@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="LP"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\usr\;CMake Files\..\..\..\..\..\usr\local\;CMake Files\..\..\..\..\..\usr\local\share\;CMake Files\..\..\..\..\..\usr\local\share\eigen3\;CMake Files\..\..\..\..\..\usr\local\share\eigen3\cmake\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/lumeng/Desktop/CCode/LP/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/lumeng/Desktop/CCode/LP/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/lumeng/Desktop/CCode/LP/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/lumeng/Desktop/CCode/LP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/lumeng/Desktop/CCode/LP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/lumeng/Desktop/CCode/LP/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/lumeng/Desktop/CCode/LP/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/lumeng/Desktop/CCode/LP/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/lumeng/Desktop/CCode/LP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/lumeng/Desktop/CCode/LP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/lumeng/Desktop/CCode/LP/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/lumeng/Desktop/CCode/LP/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/lumeng/Desktop/CCode/LP/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/lumeng/Desktop/CCode/LP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/lumeng/Desktop/CCode/LP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="LP">
+				<Option output="/Users/lumeng/Desktop/CCode/LP/cmake-build-debug/LP" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/lumeng/Desktop/CCode/LP/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/Cellar/gsl/2.4/include"/>
+					<Add directory="/usr/local/include/eigen3"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/9.1.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/lumeng/Desktop/CCode/LP/cmake-build-debug/Makefile&quot;  VERBOSE=1 LP"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/lumeng/Desktop/CCode/LP/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/lumeng/Desktop/CCode/LP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/lumeng/Desktop/CCode/LP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="LP/fast">
+				<Option output="/Users/lumeng/Desktop/CCode/LP/cmake-build-debug/LP" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/lumeng/Desktop/CCode/LP/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/Cellar/gsl/2.4/include"/>
+					<Add directory="/usr/local/include/eigen3"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/9.1.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/lumeng/Desktop/CCode/LP/cmake-build-debug/Makefile&quot;  VERBOSE=1 LP/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/lumeng/Desktop/CCode/LP/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/lumeng/Desktop/CCode/LP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/lumeng/Desktop/CCode/LP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/lumeng/Desktop/CCode/LP/LP.h">
+			<Option target="LP"/>
+		</Unit>
+		<Unit filename="/Users/lumeng/Desktop/CCode/LP/LPuse.cpp">
+			<Option target="LP"/>
+		</Unit>
+		<Unit filename="/Users/lumeng/Desktop/CCode/LP/LPuse.h">
+			<Option target="LP"/>
+		</Unit>
+		<Unit filename="/Users/lumeng/Desktop/CCode/SDNA/Print.h">
+			<Option target="LP"/>
+		</Unit>
+		<Unit filename="/Users/lumeng/Desktop/CCode/SDNA/ProbParam.h">
+			<Option target="LP"/>
+		</Unit>
+		<Unit filename="/Users/lumeng/Desktop/CCode/lbfgsb/lbfgsb.c">
+			<Option target="LP"/>
+		</Unit>
+		<Unit filename="/Users/lumeng/Desktop/CCode/lbfgsb/lbfgsb.h">
+			<Option target="LP"/>
+		</Unit>
+		<Unit filename="/Users/lumeng/Desktop/CCode/lbfgsb/linesearch.c">
+			<Option target="LP"/>
+		</Unit>
+		<Unit filename="/Users/lumeng/Desktop/CCode/lbfgsb/linpack.c">
+			<Option target="LP"/>
+		</Unit>
+		<Unit filename="/Users/lumeng/Desktop/CCode/lbfgsb/miniCBLAS.c">
+			<Option target="LP"/>
+		</Unit>
+		<Unit filename="/Users/lumeng/Desktop/CCode/lbfgsb/print.c">
+			<Option target="LP"/>
+		</Unit>
+		<Unit filename="/Users/lumeng/Desktop/CCode/lbfgsb/subalgorithms.c">
+			<Option target="LP"/>
+		</Unit>
+		<Unit filename="/Users/lumeng/Desktop/CCode/lbfgsb/timer.c">
+			<Option target="LP"/>
+		</Unit>
+		<Unit filename="/Users/lumeng/Desktop/CCode/use/useheader.h">
+			<Option target="LP"/>
+		</Unit>
+		<Unit filename="/Users/lumeng/Desktop/CCode/LP/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/Users/lumeng/Desktop/CCode/LP/../../../../../usr/local/share/eigen3/cmake/Eigen3Config.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\share\eigen3\cmake\"/>
+		</Unit>
+		<Unit filename="/Users/lumeng/Desktop/CCode/LP/../../../../../usr/local/share/eigen3/cmake/Eigen3ConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\share\eigen3\cmake\"/>
+		</Unit>
+		<Unit filename="/Users/lumeng/Desktop/CCode/LP/../../../../../usr/local/share/eigen3/cmake/Eigen3Targets.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\share\eigen3\cmake\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

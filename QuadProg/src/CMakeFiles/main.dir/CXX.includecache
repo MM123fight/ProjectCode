@@ -1,0 +1,38 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/lumeng/desktop/CCode/QuadProg/src/Array.hh
+set
+-
+stdexcept
+-
+iostream
+-
+iomanip
+-
+cmath
+-
+cstdlib
+-
+stdexcept
+-
+
+/Users/lumeng/desktop/CCode/QuadProg/src/QuadProg++.hh
+Array.hh
+/Users/lumeng/desktop/CCode/QuadProg/src/Array.hh
+
+/Users/lumeng/desktop/CCode/QuadProg/src/main.cc
+iostream
+-
+sstream
+-
+string
+-
+QuadProg++.hh
+/Users/lumeng/desktop/CCode/QuadProg/src/QuadProg++.hh
+
