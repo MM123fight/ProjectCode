@@ -123,6 +123,33 @@ Algorithm/fast:
 	$(MAKE) -f CMakeFiles/Algorithm.dir/build.make CMakeFiles/Algorithm.dir/build
 .PHONY : Algorithm/fast
 
+PPA.o: PPA.cpp.o
+
+.PHONY : PPA.o
+
+# target to build an object file
+PPA.cpp.o:
+	$(MAKE) -f CMakeFiles/Algorithm.dir/build.make CMakeFiles/Algorithm.dir/PPA.cpp.o
+.PHONY : PPA.cpp.o
+
+PPA.i: PPA.cpp.i
+
+.PHONY : PPA.i
+
+# target to preprocess a source file
+PPA.cpp.i:
+	$(MAKE) -f CMakeFiles/Algorithm.dir/build.make CMakeFiles/Algorithm.dir/PPA.cpp.i
+.PHONY : PPA.cpp.i
+
+PPA.s: PPA.cpp.s
+
+.PHONY : PPA.s
+
+# target to generate assembly for a file
+PPA.cpp.s:
+	$(MAKE) -f CMakeFiles/Algorithm.dir/build.make CMakeFiles/Algorithm.dir/PPA.cpp.s
+.PHONY : PPA.cpp.s
+
 Users/lumeng/Desktop/CCode/lbfgsb/lbfgsb.o: Users/lumeng/Desktop/CCode/lbfgsb/lbfgsb.c.o
 
 .PHONY : Users/lumeng/Desktop/CCode/lbfgsb/lbfgsb.o
@@ -312,33 +339,6 @@ Users/lumeng/Desktop/CCode/lbfgsb/timer.c.s:
 	$(MAKE) -f CMakeFiles/Algorithm.dir/build.make CMakeFiles/Algorithm.dir/Users/lumeng/Desktop/CCode/lbfgsb/timer.c.s
 .PHONY : Users/lumeng/Desktop/CCode/lbfgsb/timer.c.s
 
-main.o: main.cpp.o
-
-.PHONY : main.o
-
-# target to build an object file
-main.cpp.o:
-	$(MAKE) -f CMakeFiles/Algorithm.dir/build.make CMakeFiles/Algorithm.dir/main.cpp.o
-.PHONY : main.cpp.o
-
-main.i: main.cpp.i
-
-.PHONY : main.i
-
-# target to preprocess a source file
-main.cpp.i:
-	$(MAKE) -f CMakeFiles/Algorithm.dir/build.make CMakeFiles/Algorithm.dir/main.cpp.i
-.PHONY : main.cpp.i
-
-main.s: main.cpp.s
-
-.PHONY : main.s
-
-# target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) -f CMakeFiles/Algorithm.dir/build.make CMakeFiles/Algorithm.dir/main.cpp.s
-.PHONY : main.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -348,6 +348,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... Algorithm"
+	@echo "... PPA.o"
+	@echo "... PPA.i"
+	@echo "... PPA.s"
 	@echo "... Users/lumeng/Desktop/CCode/lbfgsb/lbfgsb.o"
 	@echo "... Users/lumeng/Desktop/CCode/lbfgsb/lbfgsb.i"
 	@echo "... Users/lumeng/Desktop/CCode/lbfgsb/lbfgsb.s"
@@ -369,9 +372,6 @@ help:
 	@echo "... Users/lumeng/Desktop/CCode/lbfgsb/timer.o"
 	@echo "... Users/lumeng/Desktop/CCode/lbfgsb/timer.i"
 	@echo "... Users/lumeng/Desktop/CCode/lbfgsb/timer.s"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
 .PHONY : help
 
 

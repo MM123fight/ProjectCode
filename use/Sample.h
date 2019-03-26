@@ -14,7 +14,7 @@
 
 //p_sum = [0,p1,p1+p2,...,p1+...+p_(n-1),1]
 template<typename L, typename D>
-L RandSample(const L& n, const std::vector<D> &p_sum,gsl_rng *gsl_rng_r){
+inline L RandSample(const L& n, const std::vector<D> &p_sum,gsl_rng *gsl_rng_r){
     //generate [0,1)
     D tmp = gsl_rng_uniform(gsl_rng_r);
     L check_point_start = 0;
@@ -34,7 +34,7 @@ L RandSample(const L& n, const std::vector<D> &p_sum,gsl_rng *gsl_rng_r){
 };
 
 template<typename L>
-std::vector<L> SampleGen(const L &max, const int &tau, gsl_rng *gsl_rng_r){
+inline std::vector<L> SampleGen(const L &max, const int &tau, gsl_rng *gsl_rng_r){
     std::vector<L> S = std::vector<L>(tau);
     // Calculate a tau-nice sampling
     if (tau < max) {
@@ -60,9 +60,14 @@ std::vector<L> SampleGen(const L &max, const int &tau, gsl_rng *gsl_rng_r){
 }
 
 
+
+
+
 template<typename L>
-void SampleGen(std::vector<L> &cord, const L& blocksize, const L& max, gsl_rng *gsl_rng_r) {
-    if (blocksize < max) {
+inline void SampleGen(std::vector<L> &cord, const L& blocksize, const L& max, gsl_rng *gsl_rng_r) {
+    if (blocksize == 1){
+        cord[0] = gsl_rng_uniform_int(gsl_rng_r, max);
+    }else if(blocksize < max) {
         for (int i = 0; i < blocksize; ++i) {
             bool done = true;
             do {

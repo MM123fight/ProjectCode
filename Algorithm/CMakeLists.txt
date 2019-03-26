@@ -23,8 +23,8 @@ set(LBFGSB_FILES
         ../lbfgsb/subalgorithms.c
         ../lbfgsb/timer.c)
 
-set(ALGO_FILES AbsAlgorithm.h AbsAlgorithmSub.h AdapPPA.h ParamAdapPPA.h)
-set(SOURCE_FILES main.cpp ${LBFGSB_FILES} ${USE_FILES} ${PROBLEM_FILES} ${SDNA_FILES} ${ALGO_FILES})
+set(ALGO_FILES AbsAlgorithm.h AbsAlgorithmSub.h PPA.h ParamPPA.h NU_ACDM.h APPROX.h PCDM.h)
+set(SOURCE_FILES PPA.cpp ${LBFGSB_FILES} ${USE_FILES} ${PROBLEM_FILES} ${SDNA_FILES} ${ALGO_FILES})
 
 add_executable(Algorithm ${SOURCE_FILES})
 find_package(GSL REQUIRED)

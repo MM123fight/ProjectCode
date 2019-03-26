@@ -13,7 +13,6 @@
 template<typename L, typename D>
 class AbsLoss{
 protected:
-    std::vector<L> full_block;
 public:
 
     D alpha = 0;
@@ -33,8 +32,8 @@ public:
     void w_initial(std::vector<D> &w, const ProbData<L, D>* const data, const std::vector<D> &x);
     void w_initial(std::vector<D> &w, const ProbData<L, D>* const data, const std::vector<D> &x,
                    const std::vector<D>& b);
-    //res_dual  = AT*lambda+c
-    void res_dual_initial(std::vector<D> &res_dual, const ProbData<L, D>* const data, const std::vector<D> &lambda,
+    //w_dual  = AT*lambda+c
+    void w_dual_initial(std::vector<D> &w_dual, const ProbData<L, D>* const data, const std::vector<D> &lambda,
                    const std::vector<D>& c);
     void w_update(std::vector<D> &w, const ProbData<L, D> *const data, const std::vector<D>& delta,
                   const L &blocksize, const std::vector<L> &cord);
@@ -44,16 +43,26 @@ public:
 
 
     virtual void cord_grad_update(std::vector<D>& cord_grad, const ProbData<L, D>* const data, const std::vector<D>& w,
-                          const std::vector<D>& x, const L& blocksize, const std::vector<L>& cord){}
+                                  const std::vector<D>& x, const L& blocksize, const std::vector<L>& cord){}
+    virtual void grad_compute(std::vector<D>& grad, const ProbData<L, D>* const data,const std::vector<D>& w,
+                              const std::vector<D>& x){}
+    virtual void cord_grad_update(D& cord_grad, const ProbData<L, D>* const data, const D& coeff_1, const D& coeff_2,
+                                  const std::vector<D>& w_y_bar, const std::vector<D>& y_bar, const std::vector<D>& w_z_bar,
+                                  const std::vector<D>& z_bar, const L& cord){}
+    virtual void grad_compute(std::vector<D> &grad, const ProbData<L, D>* const data, const D &tau,
+                      const std::vector<D> &M, const std::vector<D> &w_y_bar, const std::vector<D> &y_bar,
+                      const std::vector<D> &w_z_bar, const std::vector<D> &z_bar){}
     virtual void cord_grad_sum_update(std::vector<D>& cord_grad_sum, const ProbData<L, D>* const data, const std::vector<D>& w_y,
                                       const std::vector<D>& y, const std::vector<D>& w_z, const std::vector<D>& z,
                                       const D& theta_y, const L& blocksize, const std::vector<L>& cord){}
+    virtual void grad_sum_compute(std::vector<D> &grad_sum,const ProbData<L, D>* const data, const std::vector<D> &w_y,
+                                  const std::vector<D> &y, const std::vector<D> &w_z, const std::vector<D> &z, const D &theta_y){}
     virtual void fun_value_compute(D& fun_value, const ProbData<L, D>* const data, const std::vector<D>& w, const std::vector<D>& x){}
     //0.5*||Ax-b||~ESO(v)
-    virtual void v_initial_set(std::vector<D>& v, const ProbData<L, D>* const data, const L& blocksize);
+    void v_initial_set(std::vector<D>& v, const ProbData<L, D>* const data, const L& blocksize);
     //0.5*||Ax-b||+g(x)~ESO(v)
     virtual void v_set(std::vector<D>& v, const ProbData<L, D>* const data, const L& blocksize){}
-    virtual void Lip_initial_set(std::vector<D>& Lip, const ProbData<L, D>* const data);
+    void Lip_initial_set(std::vector<D>& Lip, const ProbData<L, D>* const data);
     virtual void Lip_set(std::vector<D>& Lip, const ProbData<L, D>* const data){}
 
 
@@ -79,12 +88,12 @@ void AbsLoss<L, D>::w_initial(std::vector<D> &w,const ProbData<L, D>* const data
 }
 
 template<typename L, typename D>
-void AbsLoss<L, D>::res_dual_initial(std::vector<D> &res_dual, const ProbData<L, D>* const data, const std::vector<D> &lambda,
+void AbsLoss<L, D>::w_dual_initial(std::vector<D> &w_dual, const ProbData<L, D>* const data, const std::vector<D> &lambda,
                       const std::vector<D>& c){
     for (L row = 0; row < data->n; ++row) {
-        res_dual[row] = c[row];
+        w_dual[row] = c[row];
         for (L col = data->AT_row_ptr[row]; col < data->AT_row_ptr[row+1]; ++col)
-            res_dual[row] += data->AT_value[col] * lambda[data->AT_col_idx[col]];
+            w_dual[row] += data->AT_value[col] * lambda[data->AT_col_idx[col]];
     }
 }
 template<typename L, typename D>
@@ -126,15 +135,11 @@ void AbsLoss<L, D>::Lip_initial_set(std::vector<D> &Lip, const ProbData<L, D> *c
 
 template<typename L, typename D>
 void AbsLoss<L, D>::set_b(const std::vector<D> &b) {
-    for (L row = 0; row < b.size(); ++row)
-        this->b[row] = b[row];
+        this->b = b;
 }
-
-
 template<typename L, typename D>
 void AbsLoss<L, D>::set_d(const std::vector<D> &d) {
-    for (L row = 0; row < d.size(); ++row)
-        this->d[row] = d[row];
+        this->d = d;
 }
 
 

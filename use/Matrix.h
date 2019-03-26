@@ -43,6 +43,42 @@ void Mdiag(const L &n, const std::vector<L> &A_row_ptr,const std::vector<D> &A_v
     }
 };
 
+template <typename D>
+inline void MtimesM_s2(std::vector<D> &A, const std::vector<D> &B) {
+    std::vector<D> C(4);
+    C[0] = A[0] * B[0] + A[1] * B[2];
+    C[1] = A[0] * B[1] + A[1] * B[3];
+    C[2] = A[2] * B[0] + A[3] * B[2];
+    C[3] = A[2] * B[1] + A[3] * B[3];
+    A[0] = C[0]; A[1] = C[1]; A[2] = C[2]; A[3] = C[3]; 
+
+};
+
+template <typename D>
+inline void MtimesM_s2(std::vector<D>& C, const std::vector<D> &A, const std::vector<D> &B) {
+    C[0] = A[0] * B[0] + A[1] * B[2];
+    C[1] = A[0] * B[1] + A[1] * B[3];
+    C[2] = A[2] * B[0] + A[3] * B[2];
+    C[3] = A[2] * B[1] + A[3] * B[3];
+
+};
+
+template <typename L, typename D>
+inline void MtimesM(std::vector<D>& C, const L& m, const L& n, const std::vector<D> &A, const std::vector<D> &B) {
+    L idx1, idx2, idx3;
+    for (L i = 0; i < m; ++i){
+        for (L j= 0; j < n; ++j){
+            idx1 = i*n + j;
+            idx2 = i*n;
+            idx3 = j*n;
+            C[idx1] = 0;
+            for (L row = 0; row < n; ++row)
+                C[idx1] += A[idx2+row] * B[idx3+row];
+        }
+    }
+
+};
+
 //M = (alpha*I + beta*AA^T )
 //AL:The diagonal matrix of M
 template <typename L, typename D>

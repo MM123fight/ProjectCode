@@ -94,19 +94,41 @@ ProbData<L, D>::ProbData(const std::string &root_path_name, const std::string &d
         mplus = m;
         if(data_type == "LS")
             Mtranspose(AT_row_ptr, AT_col_idx, AT_value, m, n, A_row_ptr, A_col_idx, A_value);
-    }else if((data_type == "LP")||(data_type == "LPtoLS")||(data_type == "LPtoLS_equ")){
+    }else if((data_type == "LP")||(data_type == "LPtoLP_inequ")||(data_type == "LPtoLS")||(data_type == "LPtoLS_equ")){
         //Read Ai and Ae
         readMeta(data_file_path+"/meta", mi, me, nb, nf);
-        m = mi+me;
         n = nb+nf;
-        nplus = nb;
-        mplus = mi;
         readMat(data_file_path+"/A", mi, n,Ai_row_ptr, Ai_col_idx, Ai_value);
         readMat(data_file_path+"/Aeq", me, n,Ae_row_ptr, Ae_col_idx, Ae_value);
         VectorRead(data_file_path+"/b",mi,bi);
         VectorRead(data_file_path+"/beq",me,be);
         VectorRead(data_file_path+"/c",n,c);
         //A=[Ai;Ae];
+        if(data_type == "LPtoLP_inequ"){
+            std::vector<D> zeros(nb,0);
+            std::vector<D> ones(nb,-1);
+            std::vector<L> ones_idx(nb);
+            for (L row = 0; row < nb; ++row)
+                ones_idx[row] = row;
+            Ai_col_idx.insert(Ai_col_idx.begin(),ones_idx.begin(),ones_idx.end());
+            Ai_value.insert(Ai_value.begin(),ones.begin(),ones.end());
+            bi.insert(bi.begin(),zeros.begin(),zeros.end());
+            for (L row = 0; row < mi+1; ++row)
+                Ai_row_ptr[row] += nb;
+            Ai_row_ptr.insert(Ai_row_ptr.begin(),ones_idx.begin(),ones_idx.end());
+            mi += nb;
+            nb = 0;
+            nf = n;
+            /*
+            Print("Ai_row_ptr",Ai_row_ptr);
+            Print("Ai_col_idx",Ai_col_idx);
+            Print("Ai_value",Ai_value);
+             */
+        }
+        m = mi+me;
+        nplus = nb;
+        mplus = mi;
+
         A_row_ptr = Ai_row_ptr;
         A_col_idx = Ai_col_idx;
         A_value = Ai_value;
@@ -208,7 +230,7 @@ ProbData<L, D>::ProbData(const std::string &root_path_name, const std::string &d
 
 template <typename L, typename D>
 void ProbData<L, D>::data_print(){
-    if(data_type == "LP") {
+    if(data_type == "LP"||"LPtoLP_inequ") {
         std::cout << "m=" << m << " mi=" << mi << " me=" << me << " mplus=" << mplus << std::endl;
         std::cout << "n=" << n << " nb=" << nb << " nf=" << nf << " nplus=" << nplus << std::endl;
         Print("c",c);
@@ -220,6 +242,12 @@ void ProbData<L, D>::data_print(){
     Print(m,n,A_row_ptr,A_col_idx,A_value);
     Print("Matrix AT:");
     Print(n,m,AT_row_ptr,AT_col_idx,AT_value);
+    if(data_type == "LP"||"LPtoLP_inequ") {
+        Print("Matrix Ai:");
+        Print(mi,n,Ai_row_ptr,Ai_col_idx,Ai_value);
+        Print("Matrix Ae:");
+        Print(me,n,Ae_row_ptr,Ae_col_idx,Ae_value);
+    }
 }
 
 #endif //PROBDATA_H

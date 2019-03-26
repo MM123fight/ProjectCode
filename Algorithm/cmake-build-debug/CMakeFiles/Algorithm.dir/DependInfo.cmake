@@ -21,7 +21,7 @@ set(CMAKE_C_TARGET_INCLUDE_PATH
   "/usr/local/include/eigen3"
   )
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/lumeng/Desktop/CCode/Algorithm/main.cpp" "/Users/lumeng/Desktop/CCode/Algorithm/cmake-build-debug/CMakeFiles/Algorithm.dir/main.cpp.o"
+  "/Users/lumeng/Desktop/CCode/Algorithm/PPA.cpp" "/Users/lumeng/Desktop/CCode/Algorithm/cmake-build-debug/CMakeFiles/Algorithm.dir/PPA.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "AppleClang")
 

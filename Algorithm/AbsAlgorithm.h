@@ -22,32 +22,34 @@ protected:
     std::ofstream logFile;
     std::string data_file_path;
     std::string full_result_path;
-    D left;
     bool result_iflog;
-    std::vector<L> full_block;
     D reg_alpha = 1.;
-
+    L K,blocksize;
+    L prec = 22;
+    L max_iter;
+    D precision;
+    std::string method_type;
 public:
-    L K;
     D initial_grad_norm,grad_norm;
     D initial_fun_value, fun_value;
     D initial_residual,residual;
-    D initial_primal_dual_grap,primal_dual_gap;
+    D initial_primal_dual_grap, primal_dual_gap;
     std::vector<D> grad;
     std::vector<D> w;//res_primal;
     std::vector<D> x;
     std::vector<D> lambda;
-    std::vector<D> res_dual;
+    std::vector<D> w_dual;
     L iter;
+    D sample_time;
+    D step_time;
+    D left_calculate_time;
     D time;
     D fun_value_opt = 0;
-    AbsAlgorithm(ProbData<L, D>* const data_inst, const unsigned int& loss_type_value, const unsigned int& reg_type_value,
-                 const std::string& data_file_path_value=""):
-            data(data_inst),loss_type(loss_type_value), reg_type(reg_type_value), data_file_path(data_file_path_value){
-        L n = data->n;
-        full_block = std::vector<L>(n);
-        for (L row = 0; row < n; ++row)
-            full_block[row] = row;
+    D res;
+    D left;
+    AbsAlgorithm(ProbData<L, D>* const data_inst, const unsigned int& loss_type, const unsigned int& reg_type,
+                 const std::string& data_file_path=""):
+            data(data_inst),loss_type(loss_type), reg_type(reg_type), data_file_path(data_file_path){
     }
 
     virtual ~AbsAlgorithm() {
@@ -65,7 +67,9 @@ public:
     void before_test(const D& value, const D& value_before, std::vector<D>& vec1, std::vector<D>& vec1_before,
                      std::vector<D>& vec2, std::vector<D>& vec2_before);
     void check_blocksize(const L& blocksize);
-    void left_value_compute();
+    virtual void left_value_compute();
+    virtual void left_res_initial(){}
+    virtual void left_res_compute(){}
     void logfile_open();
     void result_log();
     void Krcd_compute(L& K, const L& blocksize);
@@ -73,23 +77,25 @@ public:
     void reg_cord_cal(std::vector<D> &x,std::vector<D>& delta_x, const D& coefficient ,
                       const std::vector<D> &cord_grad, const L& blocksize, const std::vector<L>& cord) ;
     virtual void sub_initial(){}
+    virtual void restart_sub_initial(){}
     virtual void sub_step(){}
     virtual void step(){}
     virtual void restart_step(){}
+    virtual void solver(const std::vector<D>& x_initial, const L& max_iter, const D& precision,
+                        const unsigned int& stop_type, const bool& result_iflog){}
     virtual void solver(const std::vector<D>& x_initial, const L& blocksize, const L& max_iter,
-                const D& precision_value, const unsigned int& stop_type = 1, const bool& result_iflog_value = false,
-                const std::string& method_type = ""){}
+                        const D& precision, const unsigned int& stop_type = 1, const bool& result_iflog = false,
+                        const std::string& method_type = ""){}
     virtual void right_update(){}
+    virtual void res_initial(){}
     virtual void res_update(){}
-    virtual void initial_print(){}
     virtual void result_print(){}
-
-    void grad_compute(std::vector<D>& grad,const std::vector<D>& w, const std::vector<D>& x);
-
-    void grad_sum_compute(std::vector<D>& grad_sum,const std::vector<D>& w_y, const std::vector<D>& y,
-                          const std::vector<D>& w_z, const std::vector<D>& z, const D& theta_y);
-    void fun_value_compute(D& fun_value,const std::vector<D>& w, const std::vector<D>& x);
-
+    virtual void initial_check(){}
+    virtual void check(){}
+    void res_grad_compute(std::vector<D>&grad);
+    void res_fun_value_compute(D& fun_value);
+    void run_algorithm();
+    void restart_run_algorithm();
 
 };
 
@@ -165,12 +171,14 @@ template<typename L, typename D>
 void AbsAlgorithm<L, D>::left_value_compute() {
     switch (stop_type) {
         case 1:
-            grad_compute(grad, w, x);
+            loss->grad_compute(grad,data, w, x);
+            res_grad_compute(grad);
             grad_norm_update(grad_norm);
             left = grad_norm;
             break;
         case 2:
             loss->fun_value_compute(fun_value, data, w, x);
+            res_fun_value_compute(fun_value);
             left = fun_value - fun_value_opt;
             break;
         default:
@@ -189,35 +197,30 @@ void AbsAlgorithm<L, D>::logfile_open() {
 
 template<typename L, typename D>
 void AbsAlgorithm<L, D>::result_log(){
-    switch (stop_type) {
-        case 1:
-            logFile << std::setprecision(15) << iter << "\t" << grad_norm << "\t" << time << std::endl;
-            break;
-        case 2:
-            logFile << std::setprecision(15) << iter << "\t" << fun_value << "\t" << time << std::endl;
-            break;
-        default:
-            Print("There is no such stop type!");
-            break;
-    }
+    logFile << iter << "\t" << std::setprecision(prec) << left << "\t" << time << std::endl;
 };
 
 template<typename L, typename D>
 void AbsAlgorithm<L, D>::Krcd_compute(L& K, const L& blocksize) {
     if(mu > 0)
-        K = ceil(2 * exp(1) * data->n * (sqrt(1 + 1. / mu) - 1) / (D)blocksize + 1);
-    else
-        K = 10*data->n;
+        K = ceil(2 * exp(1) * data->n * (sqrt(1 + 1. / mu) - 1) / (D) blocksize + 1);
+    else {
+        Print("Please use restart APPROX for non-strongly convex problem");
+    }
 }
 
 template<typename L, typename D>
 void AbsAlgorithm<L, D>::primal_initial_set() {
     loss->w_initial(w, data, x, loss->b);
-    grad_compute(grad,w, x);
-    fun_value_compute(initial_fun_value,w, x);
+    loss->grad_compute(grad, data,w, x);
+    res_grad_compute(grad);
+    loss->fun_value_compute(initial_fun_value, data, w, x);
+    res_fun_value_compute(initial_fun_value);
     grad_norm_update(initial_grad_norm);
     grad_norm = initial_grad_norm;
     fun_value = initial_fun_value;
+    //Print("initial grad_norm", grad_norm);
+    //Print("initial fun_value", fun_value);
     switch (stop_type) {
         case 1:
             left = grad_norm;
@@ -246,7 +249,15 @@ void AbsAlgorithm<L, D>::reg_cord_cal(std::vector<D> &x,std::vector<D>& delta_x,
                                          const std::vector<D> &cord_grad, const L& blocksize, const std::vector<L>& cord) {
     L tmp_cord;
     switch (reg_type) {
-        case 1://indicator fun reg
+        case 1://no regularization
+            for (L row = 0; row < blocksize ; ++row) {
+                tmp_cord = cord[row];
+                delta_x[row] = -cord_grad[row] / (coefficient * v[tmp_cord]);
+                x[tmp_cord] += delta_x[row];
+            }
+            break;
+
+        case 2://indicator fun reg
             //Print("check 1");
             for (L row = 0; row < blocksize ; ++row) {
                 tmp_cord = cord[row];
@@ -261,7 +272,7 @@ void AbsAlgorithm<L, D>::reg_cord_cal(std::vector<D> &x,std::vector<D>& delta_x,
                 //Print("delta", delta_x);
             }
             break;
-        case 2://L1 reg
+        case 3://L1 reg
             D tmp_coef, tmp;
             //Print("check 2");
             for (L row = 0; row < blocksize ; ++row) {
@@ -286,19 +297,19 @@ void AbsAlgorithm<L, D>::reg_cord_cal(std::vector<D> &x,std::vector<D>& delta_x,
     }
 }
 
+
 template<typename L, typename D>
-void AbsAlgorithm<L, D>::grad_compute(std::vector<D>& grad, const std::vector<D>& w, const std::vector<D>& x){
-    //Print("check,check");
-    loss->cord_grad_update(grad,data,w,x,data->n,full_block);
-    //Print("grad_before",grad);
+void AbsAlgorithm<L, D>::res_grad_compute(std::vector<D> &grad) {
     switch (reg_type) {
         case 1:
+            break;
+        case 2:
             for (L row = 0; row < data->nplus; ++row) {
                 if ((x[row] == 0) && (grad[row] > 0))
                     grad[row] = 0;
             }
             break;
-        case 2:
+        case 3:
             for (L row = 0; row < data->n; ++row) {
                 if (x[row] > 0)
                     grad[row] += reg_alpha;
@@ -318,32 +329,16 @@ void AbsAlgorithm<L, D>::grad_compute(std::vector<D>& grad, const std::vector<D>
             Print("There is no such reg type!");
             break;
     }
-    // Print("grad",grad);
 }
 
 template<typename L, typename D>
-void AbsAlgorithm<L, D>::grad_sum_compute(std::vector<D> &grad_sum, const std::vector<D> &w_y, const std::vector<D> &y,
-                                          const std::vector<D> &w_z, const std::vector<D> &z, const D &theta_y) {
-
-    L n = data->n;
-    L m = data->m;
-    std::vector<D> sum(n);
-    std::vector<D> sum_w(m);
-    for (L row = 0; row < n; ++row)
-        sum[row] = theta_y * y[row] + z[row];
-    for (L row = 0; row < m; ++row)
-        sum_w[row] = theta_y * w_y[row] + w_z[row];
-    grad_compute(grad_sum,sum_w,sum);
-
-}
-
-template<typename L, typename D>
-void AbsAlgorithm<L, D>::fun_value_compute(D& fun_value,const std::vector<D>& w, const std::vector<D>& x){
-    loss->fun_value_compute(fun_value,data,w,x);
+void AbsAlgorithm<L, D>::res_fun_value_compute(D& fun_value){
     switch (reg_type) {
         case 1:
             break;
         case 2:
+            break;
+        case 3:
             for (L row = 0; row < data->n; ++row)
                 fun_value += reg_alpha * abs(x[row]);
             break;
@@ -352,7 +347,78 @@ void AbsAlgorithm<L, D>::fun_value_compute(D& fun_value,const std::vector<D>& w,
             break;
     }
 
-};
+}
+
+template<typename L, typename D>
+void AbsAlgorithm<L, D>::run_algorithm() {
+    iter = 0;
+    time = 0;
+    D start;
+    if(result_iflog == true) {
+        result_log();
+        Print("intial_left", left);
+        while ((left > precision) && (iter < max_iter)) {
+            start = clock();
+            step();
+            time += (clock() - start)/CLOCKS_PER_SEC;
+            result_log();
+            Print("left", left);
+        }
+    }else{
+        start = clock();
+        while ((left > precision) && (iter < max_iter))
+            step();
+        AbsAlgorithm<L,D>::time += (clock() - start)/CLOCKS_PER_SEC;
+    }
+    logFile.close();
+}
+
+template<typename L, typename D>
+void AbsAlgorithm<L, D>::restart_run_algorithm() {
+    iter = 0;
+    time = 0.;
+    D start;
+    if(result_iflog == true) {
+        result_log();
+        Print("initial_left", left);
+        if(method_type == "restart"){
+            while((left > precision) && ( iter < max_iter)) {
+                start = clock();
+                restart_step();
+                time += (clock() - start)/CLOCKS_PER_SEC;
+                result_log();
+                Print("left", left);
+                //Print("obj_fun_value:",fun_value);
+            }
+        }else{
+            sub_initial();
+            while((left > precision) && ( iter < max_iter)) {
+                start = clock();
+                step();
+                time += (clock() - start)/CLOCKS_PER_SEC;
+                result_log();
+                Print("left", left);
+            }
+        }
+    }else {
+        if (method_type == "restart"){
+            start = clock();
+            while ((left > precision) && (iter < max_iter))
+                restart_step();
+            time = (clock() - start) / CLOCKS_PER_SEC;
+        } else {
+            sub_initial();
+            start = clock();
+            while ((left > precision) && (iter < max_iter))
+                step();
+            time = (clock() - start) / CLOCKS_PER_SEC;
+        }
+    }
+    logFile.close();
+
+}
+
+
 
 
 #endif //ALGORITHM_ABSALGORITHM_H

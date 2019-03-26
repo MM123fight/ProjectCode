@@ -57,28 +57,28 @@ include CMakeFiles/Algorithm.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/Algorithm.dir/flags.make
 
-CMakeFiles/Algorithm.dir/main.cpp.o: CMakeFiles/Algorithm.dir/flags.make
-CMakeFiles/Algorithm.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/lumeng/Desktop/CCode/Algorithm/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Algorithm.dir/main.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Algorithm.dir/main.cpp.o -c /Users/lumeng/Desktop/CCode/Algorithm/main.cpp
+CMakeFiles/Algorithm.dir/PPA.cpp.o: CMakeFiles/Algorithm.dir/flags.make
+CMakeFiles/Algorithm.dir/PPA.cpp.o: ../PPA.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/lumeng/Desktop/CCode/Algorithm/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Algorithm.dir/PPA.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Algorithm.dir/PPA.cpp.o -c /Users/lumeng/Desktop/CCode/Algorithm/PPA.cpp
 
-CMakeFiles/Algorithm.dir/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Algorithm.dir/main.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/lumeng/Desktop/CCode/Algorithm/main.cpp > CMakeFiles/Algorithm.dir/main.cpp.i
+CMakeFiles/Algorithm.dir/PPA.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Algorithm.dir/PPA.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/lumeng/Desktop/CCode/Algorithm/PPA.cpp > CMakeFiles/Algorithm.dir/PPA.cpp.i
 
-CMakeFiles/Algorithm.dir/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Algorithm.dir/main.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/lumeng/Desktop/CCode/Algorithm/main.cpp -o CMakeFiles/Algorithm.dir/main.cpp.s
+CMakeFiles/Algorithm.dir/PPA.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Algorithm.dir/PPA.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/lumeng/Desktop/CCode/Algorithm/PPA.cpp -o CMakeFiles/Algorithm.dir/PPA.cpp.s
 
-CMakeFiles/Algorithm.dir/main.cpp.o.requires:
+CMakeFiles/Algorithm.dir/PPA.cpp.o.requires:
 
-.PHONY : CMakeFiles/Algorithm.dir/main.cpp.o.requires
+.PHONY : CMakeFiles/Algorithm.dir/PPA.cpp.o.requires
 
-CMakeFiles/Algorithm.dir/main.cpp.o.provides: CMakeFiles/Algorithm.dir/main.cpp.o.requires
-	$(MAKE) -f CMakeFiles/Algorithm.dir/build.make CMakeFiles/Algorithm.dir/main.cpp.o.provides.build
-.PHONY : CMakeFiles/Algorithm.dir/main.cpp.o.provides
+CMakeFiles/Algorithm.dir/PPA.cpp.o.provides: CMakeFiles/Algorithm.dir/PPA.cpp.o.requires
+	$(MAKE) -f CMakeFiles/Algorithm.dir/build.make CMakeFiles/Algorithm.dir/PPA.cpp.o.provides.build
+.PHONY : CMakeFiles/Algorithm.dir/PPA.cpp.o.provides
 
-CMakeFiles/Algorithm.dir/main.cpp.o.provides.build: CMakeFiles/Algorithm.dir/main.cpp.o
+CMakeFiles/Algorithm.dir/PPA.cpp.o.provides.build: CMakeFiles/Algorithm.dir/PPA.cpp.o
 
 
 CMakeFiles/Algorithm.dir/Users/lumeng/Desktop/CCode/lbfgsb/lbfgsb.c.o: CMakeFiles/Algorithm.dir/flags.make
@@ -251,7 +251,7 @@ CMakeFiles/Algorithm.dir/Users/lumeng/Desktop/CCode/lbfgsb/timer.c.o.provides.bu
 
 # Object files for target Algorithm
 Algorithm_OBJECTS = \
-"CMakeFiles/Algorithm.dir/main.cpp.o" \
+"CMakeFiles/Algorithm.dir/PPA.cpp.o" \
 "CMakeFiles/Algorithm.dir/Users/lumeng/Desktop/CCode/lbfgsb/lbfgsb.c.o" \
 "CMakeFiles/Algorithm.dir/Users/lumeng/Desktop/CCode/lbfgsb/linesearch.c.o" \
 "CMakeFiles/Algorithm.dir/Users/lumeng/Desktop/CCode/lbfgsb/linpack.c.o" \
@@ -263,7 +263,7 @@ Algorithm_OBJECTS = \
 # External object files for target Algorithm
 Algorithm_EXTERNAL_OBJECTS =
 
-Algorithm: CMakeFiles/Algorithm.dir/main.cpp.o
+Algorithm: CMakeFiles/Algorithm.dir/PPA.cpp.o
 Algorithm: CMakeFiles/Algorithm.dir/Users/lumeng/Desktop/CCode/lbfgsb/lbfgsb.c.o
 Algorithm: CMakeFiles/Algorithm.dir/Users/lumeng/Desktop/CCode/lbfgsb/linesearch.c.o
 Algorithm: CMakeFiles/Algorithm.dir/Users/lumeng/Desktop/CCode/lbfgsb/linpack.c.o
@@ -283,7 +283,7 @@ CMakeFiles/Algorithm.dir/build: Algorithm
 
 .PHONY : CMakeFiles/Algorithm.dir/build
 
-CMakeFiles/Algorithm.dir/requires: CMakeFiles/Algorithm.dir/main.cpp.o.requires
+CMakeFiles/Algorithm.dir/requires: CMakeFiles/Algorithm.dir/PPA.cpp.o.requires
 CMakeFiles/Algorithm.dir/requires: CMakeFiles/Algorithm.dir/Users/lumeng/Desktop/CCode/lbfgsb/lbfgsb.c.o.requires
 CMakeFiles/Algorithm.dir/requires: CMakeFiles/Algorithm.dir/Users/lumeng/Desktop/CCode/lbfgsb/linesearch.c.o.requires
 CMakeFiles/Algorithm.dir/requires: CMakeFiles/Algorithm.dir/Users/lumeng/Desktop/CCode/lbfgsb/linpack.c.o.requires

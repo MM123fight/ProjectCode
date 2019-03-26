@@ -22,14 +22,14 @@ CMakeFiles/Algorithm.dir/Users/lumeng/Desktop/CCode/lbfgsb/subalgorithms.c.o
 CMakeFiles/Algorithm.dir/Users/lumeng/Desktop/CCode/lbfgsb/timer.c.o
  /Users/lumeng/Desktop/CCode/lbfgsb/lbfgsb.h
  /Users/lumeng/Desktop/CCode/lbfgsb/timer.c
-CMakeFiles/Algorithm.dir/main.cpp.o
+CMakeFiles/Algorithm.dir/PPA.cpp.o
  /Users/lumeng/Desktop/CCode/Algorithm/APPROX.h
  /Users/lumeng/Desktop/CCode/Algorithm/AbsAlgorithm.h
  /Users/lumeng/Desktop/CCode/Algorithm/AbsAlgorithmSub.h
- /Users/lumeng/Desktop/CCode/Algorithm/AdapPPA.h
  /Users/lumeng/Desktop/CCode/Algorithm/PCDM.h
- /Users/lumeng/Desktop/CCode/Algorithm/ParamAdapPPA.h
- /Users/lumeng/Desktop/CCode/Algorithm/main.cpp
+ /Users/lumeng/Desktop/CCode/Algorithm/PPA.cpp
+ /Users/lumeng/Desktop/CCode/Algorithm/PPA.h
+ /Users/lumeng/Desktop/CCode/Algorithm/ParamPPA.h
  /Users/lumeng/Desktop/CCode/LossFun/AbsLoss.h
  /Users/lumeng/Desktop/CCode/LossFun/LossFunHeader.h
  /Users/lumeng/Desktop/CCode/LossFun/plus_squared_loss.h

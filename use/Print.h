@@ -7,7 +7,7 @@
 
 #include "stdafx.h"
 
-int Prec = 15;
+int Prec = 22;
 
 //Print nothing but a empty line
 void  Print();

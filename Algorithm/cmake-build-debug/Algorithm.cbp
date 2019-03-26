@@ -86,19 +86,28 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/lumeng/Desktop/CCode/Algorithm/APPROX.h">
+			<Option target="Algorithm"/>
+		</Unit>
 		<Unit filename="/Users/lumeng/Desktop/CCode/Algorithm/AbsAlgorithm.h">
 			<Option target="Algorithm"/>
 		</Unit>
 		<Unit filename="/Users/lumeng/Desktop/CCode/Algorithm/AbsAlgorithmSub.h">
 			<Option target="Algorithm"/>
 		</Unit>
-		<Unit filename="/Users/lumeng/Desktop/CCode/Algorithm/AdapPPA.h">
+		<Unit filename="/Users/lumeng/Desktop/CCode/Algorithm/NU_ACDM.h">
 			<Option target="Algorithm"/>
 		</Unit>
-		<Unit filename="/Users/lumeng/Desktop/CCode/Algorithm/ParamAdapPPA.h">
+		<Unit filename="/Users/lumeng/Desktop/CCode/Algorithm/PCDM.h">
 			<Option target="Algorithm"/>
 		</Unit>
-		<Unit filename="/Users/lumeng/Desktop/CCode/Algorithm/main.cpp">
+		<Unit filename="/Users/lumeng/Desktop/CCode/Algorithm/PPA.cpp">
+			<Option target="Algorithm"/>
+		</Unit>
+		<Unit filename="/Users/lumeng/Desktop/CCode/Algorithm/PPA.h">
+			<Option target="Algorithm"/>
+		</Unit>
+		<Unit filename="/Users/lumeng/Desktop/CCode/Algorithm/ParamPPA.h">
 			<Option target="Algorithm"/>
 		</Unit>
 		<Unit filename="/Users/lumeng/Desktop/CCode/SDNA/Print.h">

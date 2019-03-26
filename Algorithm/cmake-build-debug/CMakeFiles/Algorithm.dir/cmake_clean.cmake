@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/Algorithm.dir/main.cpp.o"
+  "CMakeFiles/Algorithm.dir/PPA.cpp.o"
   "CMakeFiles/Algorithm.dir/Users/lumeng/Desktop/CCode/lbfgsb/lbfgsb.c.o"
   "CMakeFiles/Algorithm.dir/Users/lumeng/Desktop/CCode/lbfgsb/linesearch.c.o"
   "CMakeFiles/Algorithm.dir/Users/lumeng/Desktop/CCode/lbfgsb/linpack.c.o"

@@ -63,8 +63,9 @@ void VectorRead(const std::string &full_data_path, L &d, std::vector<D> &c){
         c.push_back(val);
     }
     fin.close();
+    Print("size", c.size());
     if(c.size() != d) {
-        std::cout << "The size of vector c is not accordant with m" << std::endl;
+        std::cout << "The size of vector from " << full_data_path << " is not accordant with m" << std::endl;
         exit(0);
     }
 };
@@ -80,6 +81,17 @@ void VectorWrite(const std::string &full_data_path,const std::vector<D> &c) {
     fout.close();
 }
 
+
+template <typename D>
+void RowVecWrite(const std::string &full_data_path,const std::vector<D> &vec) {
+
+    std::ofstream fout;
+    fout.open(full_data_path.c_str());
+    for (int i = 0; i < vec.size(); ++i) {
+        fout << vec[i] << "\t";
+    }
+    fout.close();
+}
 
 template <typename L, typename D>
 void SvmWrite(const std::string& full_data_path, const std::vector<L> &row_ptr, 
